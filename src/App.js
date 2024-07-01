@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
+import Pokedex from "./Components/Pokedex";
+import { useEffect, useState } from "react";
+import NavBarRoutes from "./Components/NavBarRoutes";
 
 function App() {
+  const [pokemon, setPokemon] = useState([]);
+
+  useEffect(() => {
+    // fetch blogs from database
+    const getPokemon = async () => {
+      try {
+        const response = await axios.get("http://localhost:1000/api/pokemon/");
+        console.log(response.data.payload);
+        setPokemon(response.data.payload);
+        // console.log(pokemon);
+      } catch (error) {
+        console.error("Failed to fetch blog post:", error);
+      }
+    };
+    getPokemon();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBarRoutes />
     </div>
   );
 }

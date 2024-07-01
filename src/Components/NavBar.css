@@ -1,0 +1,52 @@
+
+
+.home-dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+  }
+  
+  .home-dashboard h1{
+    font-size: xx-large;
+  }
+  
+  .home-content{
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: space-around;
+    gap:25px;
+  }
+  
+  .btn-view-blog{
+    padding:10px;
+    background-color:transparent;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .btn-view-blog:hover{
+    background-color: rgba(22, 179, 22, 0.954);
+  }
+  
+  .btn-add-blog{
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+  }
+  
+  .btn-add-blog:hover{
+    background-color: rgb(24, 157, 24);
+  }
+  
+  .home-btn{
+    margin: 0;
+    top: 50%;
+  }
