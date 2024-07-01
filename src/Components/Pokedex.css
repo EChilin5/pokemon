@@ -1,13 +1,25 @@
+.pokemon-container-backdrop{
+    width: 410px;
+    height: auto;
+    background: darkred;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
 .pokemon-container{
     width: 400px;
     height: auto;
     background-color:red;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 5px;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: -5%;
     padding: 10px;
+    top:10px;
 }
 
 img{
