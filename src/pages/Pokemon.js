@@ -7,6 +7,8 @@ const Pokemon = () => {
   const [search, setSearch] = useState("");
   const [index, setIndex] = useState(0);
   const [pokemon, setPokemon] = useState([]);
+  // blank content will only be shown when
+  // it's waiting for the api to render
   const blank = [
     {
       id: 0,
@@ -20,10 +22,11 @@ const Pokemon = () => {
   ];
 
   useEffect(() => {
-    // fetch blogs from database
+    // fetch pokemon from database
     const getPokemon = async () => {
       try {
         const response = await axios.get("http://localhost:1000/api/pokemon/");
+        // stores the response.data.payload into the blog useState
         console.log(response.data.payload);
         setPokemon(response.data.payload);
         // console.log(pokemon);
@@ -42,6 +45,7 @@ const Pokemon = () => {
     setIndex(count);
   };
 
+  //  onNext
   // increment the value by 1 when moving to the next index
   // the index will reset to 0 when it reaches the
   // end of the list
@@ -54,6 +58,7 @@ const Pokemon = () => {
     console.log(index);
   };
 
+  // onPrev
   // decrement the index of the value by 1
   // the index will decrement by 1
   // if index reaches 0 then it will reset to
