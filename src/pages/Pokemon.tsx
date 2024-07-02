@@ -3,13 +3,22 @@ import PokemonCover from "../Components/PokemonCover";
 import PokemonCard from "../Components/PokemonCard";
 import axios from "axios";
 
+interface PokemonContent {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+}
+
 const Pokemon = () => {
-  const [search, setSearch] = useState("");
-  const [index, setIndex] = useState(0);
-  const [pokemon, setPokemon] = useState([]);
+  const [search, setSearch] = useState<string>("");
+  const [index, setIndex] = useState<number>(0);
+  const [pokemon, setPokemon] = useState<PokemonContent[]>([]);
+  const liveUrl: string = "https://pokemon-backend-tjff.onrender.com";
+  // const localURL: string = "http://localhost:1000";
   // blank content will only be shown when
   // it's waiting for the api to render
-  const blank = [
+  const blank: PokemonContent[] = [
     {
       id: 0,
       name: "Bulbasaur",
@@ -17,7 +26,6 @@ const Pokemon = () => {
         "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/250px-0001Bulbasaur.png",
       description: `Bulbasaur (Japanese: フシギダネ Fushigidane) is a dual-type Grass/Poison Pokémon introduced in Generation I.
         It evolves into Ivysaur starting at level 16, which evolves into Venusaur starting at level 32.`,
-      color: "yellowgreen",
     },
   ];
 
@@ -25,7 +33,7 @@ const Pokemon = () => {
     // fetch pokemon from database
     const getPokemon = async () => {
       try {
-        const response = await axios.get("http://localhost:1000/api/pokemon/");
+        const response = await axios.get(`${liveUrl}/api/pokemon/`);
         // stores the response.data.payload into the blog useState
         console.log(response.data.payload);
         setPokemon(response.data.payload);
@@ -41,7 +49,7 @@ const Pokemon = () => {
   // will update the index every time a user clicks
   // on the pokemon cards in the pokemon list views
   // to update the pokemon cover
-  const onChangeIndex = (count) => {
+  const onChangeIndex = (count: number) => {
     setIndex(count);
   };
 
@@ -81,7 +89,7 @@ const Pokemon = () => {
     return filter.map((poke) => {
       return (
         <div className="pokemon-item">
-          <PokemonCard pokemon={poke} updateIndex={onChangeIndex} />
+          <PokemonCard pokemonData={poke} updateIndex={onChangeIndex} />
         </div>
       );
     });

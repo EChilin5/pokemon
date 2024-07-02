@@ -2,15 +2,24 @@ import React, { useState, useEffect } from "react";
 import "./Pokedex.css";
 import axios from "axios";
 
+interface Pokemon {
+  name: string;
+  image: string;
+  description: string;
+}
+
 const Pokedex = () => {
-  const [index, setIndex] = useState(0);
-  const [pokemon, setPokemon] = useState([]);
+  const [index, setIndex] = useState<number>(0);
+  const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+
+  const liveUrl: string = "https://pokemon-backend-tjff.onrender.com";
+  // const localURL: string = "http://localhost:1000";
 
   useEffect(() => {
     // fetch pokemon from database
     const getPokemon = async () => {
       try {
-        const response = await axios.get("http://localhost:1000/api/pokemon/");
+        const response = await axios.get(`${liveUrl}/api/pokemon/`);
         console.log(response.data.payload);
         setPokemon(response.data.payload);
         // console.log(pokemon);
