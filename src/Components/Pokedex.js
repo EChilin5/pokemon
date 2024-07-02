@@ -7,7 +7,7 @@ const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    // fetch blogs from database
+    // fetch pokemon from database
     const getPokemon = async () => {
       try {
         const response = await axios.get("http://localhost:1000/api/pokemon/");
