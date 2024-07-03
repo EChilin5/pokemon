@@ -1,5 +1,5 @@
 import React from "react";
-import "./PokemonCover.css";
+// import "./PokemonCover.css";
 
 interface PokemonInfo {
   id: number;

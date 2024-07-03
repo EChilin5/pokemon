@@ -1,4 +1,4 @@
-import "./PokemonCard.css";
+// import "./PokemonCard.css";
 import React from "react";
 
 interface PokemonInfo {

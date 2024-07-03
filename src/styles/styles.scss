@@ -1,0 +1,17 @@
+@import "./variables";
+@import "./typography";
+@import "./pokedex";
+@import "./home";
+@import "./allpokemon";
+@import "./pokemoncard";
+
+body{
+
+    background: repeating-linear-gradient(
+          45deg, /* 45-degree angle for diagonal stripes */
+          #f5f5f5, /* Light gray color */
+          #f5f5f5 20px, /* Repeat every 20px */
+          #fff 20px, /* White color starts at 20px */
+          #fff 40px /* White color repeats at 40px */
+      );
+  }

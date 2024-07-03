@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Pokedex.css";
+// import "./Pokedex.css";
 import axios from "axios";
 
 interface Pokemon {
