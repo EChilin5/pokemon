@@ -1,0 +1,51 @@
+
+.home-dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: $color-black;
+    color: $primary-color;
+  }
+  
+  .home-dashboard h1{
+    font-size: xx-large;
+  }
+  
+  .home-content{
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: space-around;
+    gap:$navbar-content-btn-gap;
+  }
+  
+  .btn-view-blog{
+    padding:$navabar-btn-padding;
+    background-color:transparent;
+    border: none;
+    border-radius: $min-radius;
+    color: $primary-color;
+    text-decoration: none;
+    &:hover{
+        background-color: $color-green;
+      }
+  }
+  
+
+  .btn-add-blog{
+    padding: $navabar-btn-padding;
+    background-color: $color-green;
+    color: $primary-color;
+    border-radius: $navbar-btn-radius;
+    border: none;
+    text-decoration: none;
+    &:hover{
+        background-color: $color-green;
+      }
+  }
+  
+
+  .home-btn{
+    margin: $navbar-home-btn-margin;
+    top: $navbar-home-btn-top;
+  }
