@@ -30,10 +30,19 @@ const Pokedex = () => {
     getPokemon();
   }, []);
 
+  const playSound = ()=>{
+      const poke = require("../sound/pokeball.mp3")
+      const audio = new Audio(poke);
+      audio.currentTime=1;
+      audio.play();
+
+  }
+
   // increment the value by 1 when moving to the next index
   // the index will reset to 0 when it reaches the
   // end of the list
   const onNext = () => {
+    playSound();
     if (index >= pokemon.length - 1) {
       setIndex(0);
     } else {
@@ -47,6 +56,7 @@ const Pokedex = () => {
   // if index reaches 0 then it will reset to
   // the end of the list
   const onPrev = () => {
+    playSound();
     if (index === 0) {
       setIndex(pokemon.length - 1);
     } else {
@@ -66,14 +76,31 @@ const Pokedex = () => {
               <span className="dotG"></span>
             </div>
           </div>
+          <h4>{pokemon.length === 0 ? "" : pokemon[index].name}</h4>
         </div>
         <div className="pokemon-imageContainer">
+        <div className="pokemonBox-boxline">
+            <span className="dotR"></span> 
+            <span className="dotR"></span> 
+          </div>
           <img
             src={pokemon.length === 0 ? "" : pokemon[index].image}
             alt="pokemon"
             width={"250px"}
             height={"200px"}
           />
+          <div className="pokemonBox-footer">
+            <div className="pokemonBox-dot">
+              <span className="dotRL"></span>
+            </div>
+            <div className="pokemonBox-stack">
+              <div className="line"></div>
+              <div className="line"></div>
+              <div className="line"></div>
+
+            </div>
+          </div>
+
         </div>
         <div className="pokemon-btn-section">
           <button
